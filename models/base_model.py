@@ -5,7 +5,7 @@ Defines the base model
 import uuid
 from datetime import datetime
 
-time_format = '%Y-%m-%dT%H:%M:%S.%f' # Sets time format to a variable
+time_format = '%Y-%m-%dT%H:%M:%S.%f'  # Sets time format to a variable
 
 
 class BaseModel:
@@ -20,7 +20,7 @@ class BaseModel:
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
-                    value = datetime.strftime(time_format)
+                    value = datetime.strptime(value, time_format)
                 if key != '__class__':
                     setattr(self, key, value)
         else:
@@ -40,8 +40,8 @@ class BaseModel:
         """
         new_dict = dict(self.__dict__)
         new_dict['__class__'] = self.__class__.__name__
-        new_dict['created_at'] = self.created_at.strftime(time_format)
-        new_dict['updated_at'] = self.updated_at.strftime(time_format)
+        new_dict['created_at'] = self.created_at.isoformat()
+        new_dict['updated_at'] = self.updated_at.isoformat()
         if '_sa_instance_state' in new_dict:
             new_dict.pop('_sa_instance_state', None)
         return new_dict
