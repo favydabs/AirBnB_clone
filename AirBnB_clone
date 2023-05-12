@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+"""
+Script that add two numbers
+"""
+
+
+def add_numbers(a, b):
+    """Add two numbers and return the result."""
+    result = x + y
+    return result
+
+
+def main():
+    """Main function that calls add_numbers and prints the result."""
+    x = 5
+    y = 4
+    result = add_numbers(x, y)
+    print(f"The result of adding {x} and {y} is {result}.")
+
+
+if __name__ == "__main__":
+    main()
