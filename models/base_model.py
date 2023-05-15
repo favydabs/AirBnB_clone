@@ -4,6 +4,7 @@ Defines the base model
 """
 import uuid
 from datetime import datetime
+from models import storage
 
 time_format = '%Y-%m-%dT%H:%M:%S.%f'  # Sets time format to a variable
 
@@ -33,6 +34,8 @@ class BaseModel:
         Updates the updated_at attribute with the current datetime
         """
         self.updated_at = datetime.now()
+        storage.new(self)
+        storage.save()
 
     def to_dict(self):
         """
