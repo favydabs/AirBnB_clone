@@ -16,7 +16,7 @@ class BaseModel:
         """
         Initializes a new instance of BaseModel class
         """
-        
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
@@ -45,4 +45,3 @@ class BaseModel:
         if '_sa_instance_state' in new_dict:
             new_dict.pop('_sa_instance_state', None)
         return new_dict
-
