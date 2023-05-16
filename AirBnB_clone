@@ -4,7 +4,7 @@ Script that add two numbers
 """
 
 
-def add_numbers(a, b):
+def add_numbers(x, y):
     """Add two numbers and return the result."""
     result = x + y
     return result
